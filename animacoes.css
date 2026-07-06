@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Animação 1: Entrada Suave (Fade-In-Up)
+   Aplicada ao Header e Seções ao carregar a página.
+   ========================================================================== */
+
+/* Define os estados da animação */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Termina na posição original */
+    }
+}
+
+/* Cria uma classe para usar essa animação */
+.animar-entrada {
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;        /* Duração de quase um segundo */
+    animation-timing-function: ease-out; /* Começa rápido, termina suave */
+    animation-fill-mode: both;      /* Garante que o estado final permaneça */
+}
+
+/* ==========================================================================
+   Animação 2: Microinteração no Card de Projetos (Hover)
+   Código que faz o card flutuar e acender suavemente.
+   ========================================================================== */
+
+/* Esta animação não usa @keyframes, usa TRANSIÇÃO no estado original */
+.card-projeto {
+    /* Adicione estas linhas ao .card-projeto existente no seu css.css, ou use aqui: */
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease !important;
+}
+
+/* Define o comportamento ao passar o mouse (:hover) */
+.card-projeto:hover {
+    transform: translateY(-5px) !important; /* Flutua 5px para cima */
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15) !important; /* Brilho suave na cor de destaque */
+    border-color: #38bdf8 !important; /* Garante que a borda acenda */
+}
